@@ -1,67 +1,29 @@
 package com.capgemini.PaymentApplication.bean;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WalletApplicationData {
-	private String firstName;
-	private String lastName;
-	private String gender;
-	private String contact;
-	private String email;
-	private int age;
-	private LocalDate date;
+	
 	private long accNo;
-	private String userName;
-	private String password;
-	private long transId;
+	
+	private LocalDate date;
+	private String branch;
+	private String ifsc;
 	private double amount;
-	public double getAmount() {
-		return amount;
+	private long tid;
+	private Customer customer;
+	
+	static List<String> transaction = new ArrayList<String>();
+	
+	
+	
+	public static List<String> getTransaction() {
+		return transaction;
 	}
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public String getContact() {
-		return contact;
-	}
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public LocalDate getDate() {
-		return date;
-	}
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public static void setTransaction(List<String> transaction) {
+		WalletApplicationData.transaction = transaction;
 	}
 	public long getAccNo() {
 		return accNo;
@@ -69,30 +31,54 @@ public class WalletApplicationData {
 	public void setAccNo(long accNo) {
 		this.accNo = accNo;
 	}
-	public String getUserName() {
-		return userName;
+	
+	public LocalDate getDate() {
+		return date;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
-	public String getPassword() {
-		return password;
+	public String getBranch() {
+		return branch;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
-	public long getTransId() {
-		return transId;
+	public String getIfsc() {
+		return ifsc;
 	}
-	public void setTransId(long transId) {
-		this.transId = transId;
+	public void setIfsc(String ifsc) {
+		this.ifsc = ifsc;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	public long getTid() {
+		return tid;
+	}
+	public void setTid(long tid) {
+		this.tid = tid;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	@Override
 	public String toString() {
-		return "WalletApplicationData [firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender
-				+ ", contact=" + contact + ", email=" + email + ", age=" + age + ", date=" + date + ", accNo=" + accNo
-				+ ", userName=" + userName + ", password=" + password + ", transId=" + transId + "]";
+		return "WalletApplicationData [accNo=" + accNo + ",   date="
+				+ date + ", branch=" + branch + ", ifsc=" + ifsc + ", amount=" + amount + ", tid=" + tid + ", customer="
+				+ customer + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 

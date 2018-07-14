@@ -1,40 +1,46 @@
 package com.capgemini.PaymentApplication.service;
 
+import java.util.List;
+
 import com.capgemini.PaymentApplication.bean.WalletApplicationData;
+import com.capgemini.PaymentApplication.dao.WalletApplicationDao;
 
 public class WalletApplicationService implements  IWalletApplicationService{
+	WalletApplicationDao dao = new WalletApplicationDao();
+	
 	
 	public int createAccount(WalletApplicationData bean) {
-		return 0;
+		
+		return dao.createAccount(bean);
 	}
 
 	public boolean login(String username, String password) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.login(username, password);
 	}
 
 	public double showBalance() {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.showBalance();
 	}
 
 	public int deposit(double amount) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.deposit(amount);
 	}
 
 	public int withdraw(double amount) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.withdraw(amount);
 	}
 
 	public int fundTransfer(long accNo, double amount) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.fundTransfer(accNo, amount);
 	}
 	
-	public WalletApplicationData printTransaction(long transId) {
-		return null;
+	public List printTransaction() {
+		return dao.printTransaction();
 	}
 	
 

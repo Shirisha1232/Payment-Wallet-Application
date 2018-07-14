@@ -1,5 +1,6 @@
 package com.capgemini.PaymentApplication.dao;
 
+import com.capgemini.PaymentApplication.bean.Customer;
 import com.capgemini.PaymentApplication.bean.WalletApplicationData;
 
 import junit.framework.TestCase;
@@ -8,15 +9,19 @@ public class WalletApplicationDaoTest extends TestCase {
 	
 	WalletApplicationDao dao = new WalletApplicationDao();
 	WalletApplicationData bean = new WalletApplicationData();
+	Customer cust = new Customer();
 
 	public void testCreateAccount() {
-		assertEquals(0, dao.createAccount(bean));
+		assertEquals(1, dao.createAccount(bean));
 		assertNotNull(bean);
 		assertTrue(true);
 	}
 
 	public void testLogin() {
-		assertEquals(false, dao.login(bean.getUserName(), bean.getPassword()));
+		cust.setUserName("siri@12345");
+		cust.setPassword("siri@123");
+		
+		assertEquals(false, dao.login(cust.getUserName(), cust.getPassword()));
 		assertTrue(true);
 	}
 
@@ -26,12 +31,14 @@ public class WalletApplicationDaoTest extends TestCase {
 	}
 
 	public void testDeposit() {
-		assertEquals(0, dao.deposit(bean.getAmount()));
+		//assertNotNull(dao.deposit(bean.getAmount()));
+		assertEquals(1, dao.deposit(bean.getAmount()));
 		assertTrue(true);
 	}
 
 	public void testWithdraw() {
-		assertEquals(0, dao.deposit(bean.getAmount()));
+		bean.setAmount(300);
+		assertEquals(1, dao.deposit(bean.getAmount()));
 		assertTrue(true);
 		
 	}
@@ -44,7 +51,7 @@ public class WalletApplicationDaoTest extends TestCase {
 	}
 
 	public void testPrintTransaction() {
-		assertEquals(null, dao.printTransaction(bean.getTransId()));
+		assertEquals(null, dao.printTransaction());
 	}
 
 }
